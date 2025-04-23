@@ -88,7 +88,7 @@ class ChartJSNodeCanvas {
                     return reject(error);
                 }
                 return resolve(buffer);
-            }, mimeType);
+            }, mimeType, {quality: 1});
         });
     }
     /**
@@ -104,7 +104,7 @@ class ChartJSNodeCanvas {
             throw new Error('Canvas is null');
         }
         const canvas = chart.canvas;
-        const buffer = canvas.toBuffer(mimeType);
+        const buffer = canvas.toBuffer(mimeType, {quality: 1});
         chart.destroy();
         return buffer;
     }
